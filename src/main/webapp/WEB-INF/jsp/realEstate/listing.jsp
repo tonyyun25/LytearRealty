@@ -13,6 +13,10 @@
 		<!--  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+		
+		<%--카카오 API 주소 예제에서 가져 옴 : https://postcode.map.daum.net/guide#sample --%>
+		<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+	
 	
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 	
@@ -75,10 +79,15 @@
  									
 							</div>
 							
-							<div class="input-group mb-3">
+							<div class="input-group ">
 								<span class="input-group-text" >주소</span>
- 									<input type="text" class="form-control" id="addressInput" aria-label="Username" aria-describedby="basic-addon1">
+ 									<input type="text" class="form-control" id="sample4_roadAddress" aria-label="Username" aria-describedby="basic-addon1">
+ 									
 							</div>
+							
+							<input type="text" class="form-control" id="sample4_detailAddress" placeholder="상세주소를 입력해주세요." aria-label="Username" aria-describedby="basic-addon1">
+							
+							<input type="text" class="form-control mb-3" id="sample4_extraAddress" placeholder="참고항목" aria-label="Username" aria-describedby="basic-addon1">
 							
 							<div class="input-group mb-3">
 								<span class="input-group-text" >전용면적</span>
@@ -207,13 +216,24 @@
 				
 				
 				
-				let address = $("#addressInput").val().trim();
+				let address = $("#sample4_roadAddress").val().trim();
 				
 				if(address == null || address == "") {
 					alert("주소를 입력하세요")
 					return;
 				}
-
+				
+				let detailAddress = $("#sample4_detailAddress").val().trim();
+				
+				if(detailAddress == null || detailAddress == "") {
+					alert("상세주소를 입력하세요")
+					return;
+				}
+				
+				let extraAddress = $("#sample4_extraAddress").val().trim();
+				
+				
+				
 				let space = $("#spaceInput").val().trim();
 				
 				if(space == null || space == "") {
@@ -323,7 +343,8 @@
 					return;
 				}
 				
-				
+				// 기본주소, 상세주소, 참고항목을 address 한 줄로 합쳐야 한다
+				address = address + ", " + detailAddress + " " + extraAddress;
 				
 				
 				var formData = new FormData();
@@ -368,8 +389,49 @@
 				
 				
 			});
-			
-			
+			// data.address를 input 의 value에 넣어주기
+			$("#sample4_roadAddress").on("click",function(){
+				new daum.Postcode({
+					oncomplete: function(data){
+						
+						var roadAddr = data.roadAddress; // 도로명 주소 변수
+						//alert(roadAddr);
+						var extraRoadAddr = ''; // 참고 항목 변수
+						
+						if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+							extraRoadAddr += data.bname;
+						}
+						if(data.buildingName !== '' && data.apartment === 'Y'){
+							extraRoadAddr += (extraRoadAddr !== '' ? ',' + data.buildingName : data.buildingName);
+						}
+						if(extraRoadAddr !== ''){
+							extraRoadAddr = '(' + extraRoadAddr + ')';
+						}
+						
+						
+						$("#sample4_roadAddress").val(data.address);
+						
+						// 참고항목 문자열이 있을 경우 해당 필드에 넣는ㄴ다
+						if(roadAddr !== '') {
+							
+							$("#sample4_extraAddress").val(extraRoadAddr);
+							//document.getElementById("sample4_extraAddress").value = extraRoadAddr;
+						} else {
+							$("#sample4_extraAddress").val();
+						}
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+					}
+				}).open();
+			});
 			
 			
 		});

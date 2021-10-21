@@ -59,6 +59,36 @@
  	
  	</insert>
  	
+ 	<select id="selectRealEstateList" resultType="com.lytear.lytear.realEstate.model.RealEstate">
+ 		SELECT
+ 			`id`
+ 			,`userId`
+ 			,`userName`
+ 			,`imagePath`
+ 			,`memberType`
+ 			,`type`
+ 			,`address`
+ 			,`space`
+ 			,`price`
+ 			,`downPayment`
+ 			,`rent`
+ 			,`complexNumber`
+ 			,`housingUnitNumber`
+ 			,`residence`
+ 			,`moveInDate`
+ 			,`option`
+ 			,`others`
+ 			,`startDate`
+ 			,`endDate`
+ 			,`createdAt`
+ 			,`updatedAt`
+ 		FROM
+ 			`realEstate`
+ 			
+ 		ORDER BY `id` DESC
+ 		
+ 	</select>
+ 
  
  </mapper>
  
