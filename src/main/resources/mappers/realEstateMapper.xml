@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="com.lytear.lytear.realEstate.dao.RealEstateDAO">
+ 	<insert id="insertList" parameterType="map">
+ 	
+ 		INSERT INTO `realEstate`
+ 		(
+ 			
+ 			`userId`
+ 			,`userName`
+ 			,`imagePath`
+ 			,`memberType`
+ 			,`type`
+ 			,`address`
+ 			,`space`
+ 			,`price`
+ 			,`downPayment`
+ 			,`rent`
+ 			,`complexNumber`
+ 			,`housingUnitNumber`
+ 			,`residence`
+ 			,`moveInDate`
+ 			,`option`
+ 			,`others`
+ 			,`startDate`
+ 			,`endDate`
+ 			,`createdAt`
+ 			,`updatedAt`
+ 		)
+ 		VALUES
+ 		(
+ 			
+ 			#{userId }
+ 			,#{userNameTest }
+ 			,#{imagePath }
+ 			,#{memberType }
+ 			,#{type }
+ 			,#{address }
+ 			,#{space }
+ 			,#{price }
+ 			,#{downPayment }
+ 			,#{rent }
+ 			,#{complexNumber }
+ 			,#{housingUnitNumber }
+ 			,#{residence }
+ 			,#{moveInDate }
+ 			,#{option }
+ 			,#{others }
+ 			,#{startDate }
+ 			,#{endDate }
+ 			,now()
+ 			,now()	
+ 		
+ 		)	
+ 	
+ 	
+ 	</insert>
+ 	
+ 
+ </mapper>
+ 
+

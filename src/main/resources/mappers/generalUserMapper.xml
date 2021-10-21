@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lytear.lytear.generalUser.dao.GeneralUserDAO">
+	<insert id="insertUser" parameterType="map">
+		INSERT INTO `generalUser`
+		(
+			`loginId`
+			,`password`
+			,`email`
+			,`name`
+			,`mobile`
+		
+		)
+		VALUES (
+			#{loginId}
+			,#{password}
+			,#{email}
+			,#{name}
+			,#{mobile}
+		
+		)
+	
+	</insert>
+
+	<select id="selectUser" resultType="com.lytear.lytear.generalUser.model.GeneralUser"
+	parameterType="map"> 
+		SELECT
+			`id`
+			,`loginId`
+			,`password`
+			,`email`
+			,`name`
+			,`mobile`
+			,`createdAt`
+			,`updatedAt`
+		
+		FROM
+			`generalUser`
+		
+		WHERE
+		
+			`loginId` = #{loginId}
+			AND `password` = #{password} 
+	
+	</select>
+	
+	
+	
+	
+	
+	
+	
+</mapper>
+
+
+
+
