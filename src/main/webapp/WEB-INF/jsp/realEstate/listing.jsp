@@ -210,8 +210,15 @@
 					return;
 				}
 				--%>				
-				var memberTypeCheck = $("input[name=memberType]:checked").val();
 				
+				
+				
+				//var memberTypeCheck = $("input[name=memberType]:checked").val();
+				if($("input[name=memberType]:checked").val() == 'broker') {
+					var memberTypeCheck = "중개사 매물"; 
+				} else {
+					var memberTypeCheck = "일반회원 매물"; 
+				}
 				
 				
 				
@@ -244,7 +251,16 @@
 				id는 대응하는 밸류 있어야하나 라디오는 name, checked 된 값 기반임
 				--%>
 				
-				var typeCheck = $("input[name=type]:checked").val();
+				//var typeCheck = $("input[name=type]:checked").val();
+				
+				if($("input[name=type]:checked").val() == 'sale') {
+					var typeCheck = "매매";
+				} else if($("input[name=type]:checked").val() == 'jeonse') {
+					var typeCheck = "전세";
+				} else {
+					var typeCheck = "월세";
+				}
+				
 				
 				
 				let price = 0;
@@ -419,15 +435,6 @@
 						} else {
 							$("#sample4_extraAddress").val();
 						}
-						
-						
-						
-						
-						
-						
-						
-						
-						
 						
 					}
 				}).open();
