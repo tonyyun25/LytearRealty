@@ -96,7 +96,10 @@
 							
 							<div class="input-group mb-3">
 								<span class="input-group-text" >입주일</span>
- 									<input type="text" class="form-control" id="moveInDateInput" <fmt:formatDate value="${realEstate.moveInDate }" pattern="yyyy년 MM월 dd일" />  >
+ 									
+ 									<%-- <input type="text" class="form-control" id="moveInDateInput" <fmt:formatDate value="${realEstate.moveInDate }" pattern="yyyy년 MM월 dd일" />  > --%>
+ 									
+ 									<input type="text" class="form-control" id="moveInDateInput" value="<fmt:formatDate value="${realEstate.moveInDate }" pattern="yyyy년 MM월 dd일" />" >
  									
 							</div>
 							
@@ -112,12 +115,12 @@
 							
 							<div class="input-group mb-3">
 								<span class="input-group-text" >방문 가능 시작일</span>
- 									<input type="text" class="form-control" id="startDateInput" value="${realEstate.startDate }">
+ 									<input type="text" class="form-control" id="startDateInput" value="<fmt:formatDate value="${realEstate.startDate }" pattern="yyyy년 MM월 dd일" />">
 							</div>
 							
 							<div class="input-group mb-3">
 								<span class="input-group-text" >방문 가능 종료일</span>
- 									<input type="text" class="form-control" id="endDateInput" value="${realEstate.endDate }">
+ 									<input type="text" class="form-control" id="endDateInput" value="<fmt:formatDate value="${realEstate.endDate }" pattern="yyyy년 MM월 dd일" />">
 							</div>
 							
 							
