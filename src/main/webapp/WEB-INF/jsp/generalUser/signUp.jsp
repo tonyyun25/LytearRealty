@@ -70,7 +70,7 @@
 							
 				<div class="d-flex align-items-center justify-content-center mt-3">
 					<div class="border-box3  border border-secondary d-flex align-items-center justify-content-center">
-						<span class=" ">계정이 있으신가요?<a href="/user/signin_view" > 로그인</a></span>
+						<span class=" ">계정이 있으신가요?<a href="/generalUser/signin_view" > 로그인</a></span>
 					
 					</div>
 				</div>

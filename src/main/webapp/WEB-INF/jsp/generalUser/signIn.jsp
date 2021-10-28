@@ -64,7 +64,7 @@
 							
 				<div class="d-flex align-items-center justify-content-center mt-3">
 					<div class="border-box3  border border-secondary d-flex align-items-center justify-content-center">
-						<span class=" ">계정이 없으신가요?<a href="/user/signup_view" > 일반회원 가입하기</a></span>
+						<span class=" ">계정이 없으신가요?<a href="/generalUser/signup_view" > 일반회원 가입하기</a></span>
 					
 					</div>
 				</div>
@@ -97,7 +97,8 @@
 					data: {"loginId":id,"password":password},
 					success: function(data){
 						if(data.result == "success") {
-							alert("로그인 성공");
+							//alert("로그인 성공");
+							location.href="/real_estate/view_list";
 						} else {
 							alert("로그인 실패");
 						}

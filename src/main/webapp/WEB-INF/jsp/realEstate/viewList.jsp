@@ -25,10 +25,15 @@
 	<div id="wrap">
 		<section class="content d-flex justify-content-center">
 			<div class="">
-				<c:if test="${not empty userName}">
-				<div class="text-right mr-3">${userName } 님 [로그아웃]</div><!--mafia/123-->
-				</c:if>
 				
+				
+				<div class="d-flex align-items-center justify-content-between">
+					<button type="submit" class="btn btn-success mt-3 mb-2" id="addListBtn">매물 등록 화면</button>
+					
+					<c:if test="${not empty userName}">
+					<div class="text-right ">${userName } 님 [로그아웃]</div><!--mafia/123-->
+					</c:if>
+				</div>
 				
 				<c:forEach var="realEstate" items="${realEstateList }">
 				<div class="d-flex justify-content-center">
@@ -124,26 +129,30 @@
 							</div>
 							
 							
-							
-							<button type="submit" class="btn btn-success form-control mb-3" id="addListBtn">매물 등록</button>
-						
-							
-							
 						</div>
 					</div>
 					
-						
 				</div>
-				
-				
 				
 				</c:forEach>
 			</div>
 		</section>
 	
-	
 	</div>
-
+	
+	<script>
+		$(document).ready(function(){
+			$("#addListBtn").on("click", function(){
+				location.href="/real_estate/listing";
+			});
+			
+			
+			
+		});	
+	
+	
+	
+	</script>
 
 
 

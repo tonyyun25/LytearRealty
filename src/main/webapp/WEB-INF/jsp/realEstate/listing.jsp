@@ -393,7 +393,9 @@
 					success : function(data) {
 						if(data.result == "success") {
 							//alert("입력 성공");
-							location.reload();
+							//location.reload();
+							location.href="/real_estate/view_list";
+							
 						} else {
 							alert("글쓰기에 실패했습니다.");
 						}			
