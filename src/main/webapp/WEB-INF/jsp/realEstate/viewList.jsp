@@ -128,6 +128,9 @@
  									<input type="text" class="form-control" id="endDateInput" value="<fmt:formatDate value="${realEstate.endDate }" pattern="yyyy년 MM월 dd일" />">
 							</div>
 							
+							<button type="submit" class="btn btn-success form-control mb-3" id="reservation">방문 예약</button>
+						
+							
 							
 						</div>
 					</div>
