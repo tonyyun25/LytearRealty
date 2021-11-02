@@ -34,13 +34,13 @@
 		
 </head>
 <body>
-
+	
 	<div id="wrap">
 		<%--<c:import url="/WEB-INF/jsp/include/header.jsp" /> --%>
 		
 		<section class="content align-items-center d-flex justify-content-center">
 			<div class="">
-				
+				${param.realEstateId }
 				<c:if test="${not empty userName}">
 				<div class="text-right mr-3">${userName } 님 [로그아웃]</div><!--mafia/123-->
 				</c:if>
@@ -48,27 +48,27 @@
 				<div class="d-flex align-items-center justify-content-center">
 					<div class="border-box1  border border-secondary d-flex align-items-center justify-content-center">
 						<div class="input-box ">
+							<form id="visitRequestBtn" data-real-estate-id="${param.realEstateId }">
 					
-					
-							<div class="banner d-flex align-items-center justify-content-center mb-3">
-								<span class="font-weight-bold">방문예약 신청</span>
-							</div>
-					
-							<div class="input-group mb-3 mt-2">
-								<span class="input-group-text" >방문 일자</span>
- 									<input type="text" class="form-control" id="startDateInput" aria-label="Username" aria-describedby="basic-addon1">
-							</div>
-							
-							<div class="input-group mb-3">
-								<span class="input-group-text" >방문 시간</span>
- 									<input type="text" class="form-control" id="endDateInput" aria-label="Username" aria-describedby="basic-addon1">
-							</div>
-							
-							
-							
-							<button type="submit" class="btn btn-success form-control mb-5" id="reservationRequestBtn">예약 요청하기</button>
+								<div class="banner d-flex align-items-center justify-content-center mb-3">
+									<span class="font-weight-bold">방문예약 신청</span>
+								</div>
 						
+								<div class="input-group mb-3 mt-2">
+									<span class="input-group-text" >방문 일자</span>
+	 									<input type="text" class="form-control" id="dateInput" aria-label="Username" aria-describedby="basic-addon1">
+								</div>
+								
+								<div class="input-group mb-3">
+									<span class="input-group-text" >방문 시간</span>
+	 									<input type="text" class="form-control" id="timeInput" aria-label="Username" aria-describedby="basic-addon1">
+								</div>
+								
+								
+								
+								<button type="submit" class="btn btn-success form-control mb-5" id="reservationRequestBtn">예약 요청하기</button>
 							
+							</form>
 					
 						</div>
 					</div>
@@ -83,7 +83,7 @@
 	
 	<script>
 		$(document).ready(function(){
-			$("#startDateInput").datepicker({
+			$("#dateInput").datepicker({
 				minDate:0,
 				showButtonPanel: true,
 				currentText: '오늘',
@@ -98,7 +98,7 @@
 			// 매물이 방문 예약과 별개로 실거래라든가 완전히 다른 용도로 사용 가능하다면
 			// reservation 패키지를 별도로 만드는 게 좋을 것 (O, 매물 패키지의 확장성에 용이)
 			
-			$('#endDateInput').timepicker({
+			$('#timeInput').timepicker({
 			    timeFormat: 'h:mm p',
 			    interval: 30,
 			    minTime: '10',
@@ -110,6 +110,41 @@
 			    scrollbar: true
 			});
 			
+			
+			
+			$("#visitRequestBtn").on("submit", function(e){
+				e.preventDefault();
+				
+				var date = $("#dateInput").val().trim(); 
+				var time = $("#timeInput").val().trim(); 
+				var id = $(this).data("real-estate-id");//12를 꺼내 입력함. data 메소드. 아주 자주 쓰는 문법 흐름이므로 숙지
+				
+				if(date==null || date=="") {
+					alert("방문 일자를 선택하세요")
+				} 
+				if(time==null || time=="") {
+					alert("방문 시간을 선택하세요")
+				} 
+				
+				$.ajax({
+					type: "get",
+					url: "/reservation/sendRequest",
+					data: {"reserveDate":date,"reserveTime":time,"realEstateId":id},//${param.realEstateId } 처음 한 방법
+					success: function(data){
+						if(data.result == "success") {
+							alert("입력 성공");
+						} else {
+							alert("입력 실패")
+						}
+						//10:30:00초 형식 저장시 될 수도 있음. 아니면 시간만 저장 가능한 타입(timestamp) 있는지 확인
+						// 아니면 String으로 데이타에 저장
+					},
+					error: function(e) {
+						alert("에러");
+					}
+					
+				});
+			});
 			
 		});
 	

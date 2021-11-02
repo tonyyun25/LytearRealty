@@ -52,6 +52,18 @@ public class RealEstateRestController {
 		int userId = (Integer)session.getAttribute("userId");
 		String userNameTest = (String)session.getAttribute("userName");
 		
+		/* RealEsate의 객체를 새로 만들어야 realEstateId를 session에 저장할 수 있는지?
+		 * session.setAttribute("realEstateId", realEstate.getId());
+		 * 
+		 * 매물리스트 중에서 내가 선택한 매물. => 방문 예약 정보. 
+		 * 매물ID 단발성 위해 세션 사용하는 것은 좋지 않아 (서버/클 유지되어 계속 사용할 것이 세션 이용해 적합)
+		 * 매물 화면에서 클릭했을 때 매물 ID를 이 페이지로 전달 => 파라미터
+		 * 
+		 * 
+		 * */
+		
+		
+		
 		
 		Map<String, String> result = new HashMap<>();
 		int count = realEstateBO.addList(userId, userNameTest, file, memberType, type, address, space, price, downPayment, rent, complexNumber, housingUnitNumber, residence, moveInDate, option, others, startDate, endDate);
