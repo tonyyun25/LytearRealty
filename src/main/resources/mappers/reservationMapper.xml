@@ -30,6 +30,26 @@
 	
 	</insert>
 
+	<select id="selectReservationList" resultType="com.lytear.lytear.reservation.model.Reservation"
+	parameterType="int">
+	
+		SELECT
+			`id`
+			,`realEstateId`
+			,`reserveDate`
+			,`reserveTime`
+			,`userId`
+			,`userName`
+			,`createdAt`
+			,`updatedAt`
+		FROM
+			`reservation`
+		WHERE
+			`userId` = #{userId }
+			
+	
+	</select>
+
 
 
 </mapper>

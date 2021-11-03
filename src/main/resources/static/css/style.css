@@ -14,10 +14,22 @@ header {
 	width: 500px;
 	/*height: 390px;  기존 400px */
 }
+.border-box1-visit{
+	width: 800px;
+}
+
+
+
 .input-box {
 	width: 400px;
 	/*height를 주면 안 됨 기존 300px */
 }
+.input-box-visit {
+	width: 700px;
+}
+
+
+
 .input-box2 {
 	width: 380px;
 	/*height를 주면 안 됨 */
@@ -57,8 +69,14 @@ header {
 	color: black;
 }
 
-
-
+.box-title {
+	
+	width: 36px;
+}
+.address-size {
+	width: 500px;
+	
+}
 
 footer {
 	height: 60px;

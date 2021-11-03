@@ -47,91 +47,94 @@
 							<img src="${realEstate.imagePath }" class="w-100 imageClick">
 							<hr>
 							
-							<div class="input-group mb-3">
-								<span class="input-group-text" id="memberTypeInput">구분</span>								
-									<input type="text"  class="form-control" value="${realEstate.memberType }">
+							<div class="d-flex align-items-center mb-1">
+								<div class="d-flex m-2 text-secondary" id="memberTypeInput">구분</div>								
+								<div class="font-weight-bold">${realEstate.memberType }</div>
 							</div>
 							
-							<div class="input-group mb-3">
-								<span class="input-group-text" id="memberTypeInput">종류</span>								
-									<input type="text"  class="form-control" value="${realEstate.type }">
+							<div class="d-flex align-items-center mb-1">
+								<span class="d-flex m-2 text-secondary" id="memberTypeInput">종류</span>								
+								<div class="font-weight-bold">${realEstate.type }</div>	
 							</div>
 														
-							<div class="input-group mb-3">
-								<span class="input-group-text" >주소</span>
- 									<input type="text" class="form-control" id="sample4_roadAddress" value="${realEstate.address }">
- 									
+							<div class="d-flex align-items-center mb-1 ">
+								<span class="d-flex m-2 text-secondary box-title" >주소</span><%--col은 편의상, 실제할 때는 width 다 잡아줘야 함 --%>
+ 								<%-- <input type="text" style="border:0 solid black;" class="font-weight-bold form-control" id="sample4_roadAddress">--%>
+ 								<div class="font-weight-bold">${realEstate.address }</div>	
 							</div>
 							
 							
-							<div class="input-group mb-3">
-								<span class="input-group-text" >전용면적</span>
- 									<input type="text" class="form-control" id="spaceInput" value="${realEstate.space }">
+							<div class="d-flex align-items-center mb-1">
+								<span class="d-flex m-2 text-secondary" >전용면적</span>
+ 								<div class="font-weight-bold">${realEstate.space }</div>
 							</div>
 							
-							<div class="input-group mb-3" id="sale">
-								<span class="input-group-text" >매매가</span>
- 									<input type="text" class="form-control" id="priceInput" value="${realEstate.price }">
+							<div class="d-flex align-items-center mb-1" id="sale">
+								<span class="d-flex m-2 text-secondary" >매매가</span>
+ 								<div class="font-weight-bold">${realEstate.price }</div>
 							</div>
 							
-							<div class="input-group mb-3 d-none" id="jeonse">
-								<span class="input-group-text" >보증금</span>
- 									<input type="text" class="form-control" id="downPaymentInput" value="${realEstate.downPayment }">
+							<div class="d-flex align-items-center mb-1 d-none" id="jeonse">
+								<span class="d-flex m-2 text-secondary" >보증금</span>
+ 								<div class="font-weight-bold">${realEstate.downPayment }</div>
 							</div>
 							
-							<div class="input-group mb-3 d-none" id="monthly">
-								<span class="input-group-text" >월세</span>
- 									<input type="text" class="form-control" id="rentInput" value="${realEstate.rent }">
+							<div class="d-flex align-items-center mb-1 d-none" id="monthly">
+								<span class="d-flex m-2 text-secondary" >월세</span>
+ 								<div class="font-weight-bold">${realEstate.rent }</div>
 							</div>
 							
-							<div class="input-group mb-3">
-								<span class="input-group-text" >동</span>
- 									<input type="text" class="form-control" id="complexNumberInput" value="${realEstate.complexNumber }">
+							<div class="d-flex align-items-center mb-1">
+								<span class="d-flex m-2 text-secondary" >동</span>
+ 								<div class="font-weight-bold">${realEstate.complexNumber }</div>
 							</div>
 							
-							<div class="input-group mb-3">
-								<span class="input-group-text" >호수</span>
- 									<input type="text" class="form-control" id="housingUnitNumberInput" value="${realEstate.housingUnitNumber }">
+							<div class="d-flex align-items-center mb-1">
+								<span class="d-flex m-2 text-secondary" >호수</span>
+ 								<div class="font-weight-bold">${realEstate.housingUnitNumber }</div>
 							</div>
 							
-							<div class="input-group mb-3">
-								<span class="input-group-text" >거주</span>
- 									<input type="text" class="form-control" id="residenceInput" value="${realEstate.residence }">
+							<div class="d-flex align-items-center mb-1">
+								<span class="d-flex m-2 text-secondary" >거주</span>
+ 								<div class="font-weight-bold">${realEstate.residence }</div>
 							</div>
 							
-							<div class="input-group mb-3">
-								<span class="input-group-text" >입주일</span>
+							<div class="d-flex align-items-center mb-1">
+								<span class="d-flex m-2 text-secondary" >입주일</span>
  									
  									<%-- <input type="text" class="form-control" id="moveInDateInput" <fmt:formatDate value="${realEstate.moveInDate }" pattern="yyyy년 MM월 dd일" />  > --%>
  									
- 									<input type="text" class="form-control" id="moveInDateInput" value="<fmt:formatDate value="${realEstate.moveInDate }" pattern="yyyy년 MM월 dd일" />" >
- 									
+ 								<%-- <input type="text" style="border:0 solid black;" class="font-weight-bold" id="moveInDateInput" value="<fmt:formatDate value="${realEstate.moveInDate }" pattern="yyyy년 MM월 dd일" />" >--%>
+ 								<%--format은 memo의 jsp/post/listView 참조 --%>
+ 								<div class="font-weight-bold"><fmt:formatDate value="${realEstate.moveInDate }" pattern="yyyy년 MM월 dd일" /></div>	
 							</div>
 							
-							<div class="input-group mb-3">
-								<span class="input-group-text" >옵션</span>
- 									<input type="text" class="form-control" id="optionInput" value="${realEstate.option }">
+							<div class="d-flex align-items-center mb-1">
+								<span class="d-flex m-2 text-secondary" >옵션</span>
+ 								<div class="font-weight-bold">${realEstate.option }</div>
 							</div>
 							
-							<div class="input-group mb-3">
-								<span class="input-group-text" >기타</span>
- 									<input type="text" class="form-control" id="othersInput" value="${realEstate.others }">
+							<div class="d-flex align-items-center mb-1">
+								<span class="d-flex m-2 text-secondary" >기타</span>
+ 								<div class="font-weight-bold">${realEstate.others }</div>
 							</div>
 							
-							<div class="input-group mb-3">
-								<span class="input-group-text" >방문 가능 시작일</span>
- 									<input type="text" class="form-control" id="startDateInput" value="<fmt:formatDate value="${realEstate.startDate }" pattern="yyyy년 MM월 dd일" />">
+							<div class="d-flex align-items-center mb-1">
+								<span class="d-flex m-2 text-secondary" >방문 가능 시작일</span>
+ 								<div class="font-weight-bold"><fmt:formatDate value="${realEstate.startDate }" pattern="yyyy년 MM월 dd일" /></div>
 							</div>
 							
-							<div class="input-group mb-3">
-								<span class="input-group-text" >방문 가능 종료일</span>
- 									<input type="text" class="form-control" id="endDateInput" value="<fmt:formatDate value="${realEstate.endDate }" pattern="yyyy년 MM월 dd일" />">
+							<div class="d-flex align-items-center mb-1">
+								<span class="d-flex m-2 text-secondary" >방문 가능 종료일</span>
+ 								<div class="font-weight-bold"><fmt:formatDate value="${realEstate.endDate }" pattern="yyyy년 MM월 dd일" /></div>
 							</div>
 							
-							<a href="/reservation/request?realEstateId=${realEstate.id }" class="btn btn-success form-control mb-3" id="reservation">방문 예약</a>
-						
+							
+							<div>
+								<a href="/reservation/request?realEstateId=${realEstate.id }" class="btn btn-success form-control mb-3" id="reservation">방문 예약</a>
+								<a href="/reservation/list_view?realEstateId=${realEstate.id }" class="btn btn-secondary form-control mb-3">예약 결과 조회</a>
 								
-							
+							</div>
 						</div>
 					</div>
 					

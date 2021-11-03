@@ -1,14 +1,25 @@
 package com.lytear.lytear.reservation;
 
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.lytear.lytear.reservation.bo.ReservationBO;
+import com.lytear.lytear.reservation.model.Reservation;
 
 @Controller
 @RequestMapping("/reservation")
 public class ReservationController {
 
-	
+	@Autowired
+	private ReservationBO reservationBO;
 	
 	@GetMapping("/request")
 	public String reservation_request() {
@@ -16,11 +27,24 @@ public class ReservationController {
 		return "reservation/reservationRequest";
 	}
 	
-	@GetMapping("/list")
-	public String reservation_list() {
+	@GetMapping("/list_view")
+	public String reservation_list(
+			Model model
+			, HttpServletRequest request
+			
+			) {
+			
+			HttpSession session = request.getSession();
+			int userId = (Integer)session.getAttribute("userId");
+		
+			List<Reservation> reservationList = reservationBO.getReservationList(userId);
+			model.addAttribute("reservationList",reservationList);
+			
 		
 		return "reservation/reservationList";
 	}
+	
+	
 	
 	
 	
