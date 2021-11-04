@@ -51,6 +51,13 @@ public class RealEstateBO {
 		return realEstateList;
 	}
 	
+	// reservation 하나당 (해당하는) real Estate 주소 가져오기
+	/*
+	public List<RealEstate> getRealEstateListByReservationId(int reservationId){
+	
+		return realEstateDAO.selectRealEstateListByReservationId(reservation.getId());
+	}
+	*/
 	
 	
 }
