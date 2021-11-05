@@ -13,7 +13,8 @@ public class FileManagerService {
 
 //	public final static String FILE_UPLOAD_PATH = "C:\\Users\\01.Web개발\\memo\\upload\\images/";
 	
-	public final static String FILE_UPLOAD_PATH = "D:\\윤진일\\프로젝트\\workspace\\LytearRealty\\upload\\images/";
+//	public final static String FILE_UPLOAD_PATH = "D:\\윤진일\\프로젝트\\workspace\\LytearRealty\\upload\\images/";// 컴퓨터 경로 -> 서버에 저장할 경로로 바꿔야 함 211105
+	public final static String FILE_UPLOAD_PATH = "/home/ec2-user/uploads";
 	
 	public static String saveFile(int userId, MultipartFile file) {
 		
