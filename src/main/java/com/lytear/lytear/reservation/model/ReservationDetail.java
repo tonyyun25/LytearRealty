@@ -7,7 +7,8 @@ import com.lytear.lytear.realEstate.model.RealEstate;
 public class ReservationDetail {
 
 	private Reservation reservation;
-	private List<RealEstate> realEstateList;
+//	private List<RealEstate> realEstateList;
+	private RealEstate realEstate;
 	
 	
 	public Reservation getReservation() {
@@ -16,12 +17,22 @@ public class ReservationDetail {
 	public void setReservation(Reservation reservation) {
 		this.reservation = reservation;
 	}
-	public List<RealEstate> getRealEstateList() {
-		return realEstateList;
+	
+	public RealEstate getRealEstate() {
+		return realEstate;
 	}
-	public void setRealEstateList(List<RealEstate> realEstateList) {
-		this.realEstateList = realEstateList;
+	public void setRealEstate(RealEstate realEstate) {
+		this.realEstate = realEstate;
 	}
+	
+	
+	
+//	public List<RealEstate> getRealEstateList() {
+//		return realEstateList;
+//	}
+//	public void setRealEstateList(List<RealEstate> realEstateList) {
+//		this.realEstateList = realEstateList;
+//	}
 	
 	
 	

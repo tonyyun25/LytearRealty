@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.lytear.lytear.reservation.bo.ReservationBO;
-import com.lytear.lytear.reservation.model.Reservation;
+import com.lytear.lytear.reservation.model.ReservationDetail;
 
 @Controller
 @RequestMapping("/reservation")
@@ -37,7 +37,8 @@ public class ReservationController {
 			HttpSession session = request.getSession();
 			int userId = (Integer)session.getAttribute("userId");
 		
-			List<Reservation> reservationList = reservationBO.getReservationList(userId);
+//			List<Reservation> reservationList = reservationBO.getReservationList(userId);
+			List<ReservationDetail> reservationList = reservationBO.getReservationList(userId);
 			model.addAttribute("reservationList",reservationList);
 			
 		

@@ -11,7 +11,7 @@ import com.lytear.lytear.realEstate.model.RealEstate;
 import com.lytear.lytear.reservation.dao.ReservationDAO;
 import com.lytear.lytear.reservation.model.Reservation;
 import com.lytear.lytear.reservation.model.ReservationDetail;
-import com.lytear.sns.post.model.PostDetail;
+
 
 @Service
 public class ReservationBO {
@@ -49,10 +49,33 @@ public class ReservationBO {
 		for(Reservation reservation : reservationList) {
 			
 			//List<RealEstate> realEstateList = realEstateBO.getRealEstateListByReservationId();
-			List<RealEstate> realEstateList = realEstateBO.getRealEstateListByRealEstateId(realEstateId);
+//			List<RealEstate> realEstateList = realEstateBO.getRealEstateListByRealEstateId(reservation.getRealEstateId());
+			
+//			List<RealEstate> realEstateList = realEstateBO.getRealEstateListByReservationId(reservation.getId());  
+			
+			RealEstate realEstate = realEstateBO.getRealEstateByReservationId(reservation.getId());  
 			
 			
+			//<= reservation에 해당하는 매물은 딱 하나니까 List<RealEstate>가 아니라 RealEstate 객체 자체로 만들자.예약정보 안의 매물정보(이미 들어있다)를 통해서 가져와야 해
+			// 매물 하나에 예약 정보 여러개면 저장할 방법이 없어. 이 예약 상태의 매물은 뭐다. reser/id로 매물 table select 해 오면 된다. 두 개를 묶어 하나의 데이터를 만들면 된다
 			
+			
+//			[참고] SNS
+//			List<Comment> commentList = commentBO.getCommentListByPostId(post.getId()); 
+			
+			
+			ReservationDetail reservationDetail = new ReservationDetail();
+			reservationDetail.setReservation(reservation);
+			reservationDetail.setRealEstate(realEstate);
+			
+			reservationDetailList.add(reservationDetail);
+			
+//			public RealEstate getRealEstate() {
+//				return realEstate;
+//			}
+//			public void setRealEstate(RealEstate realEstate) {
+//				this.realEstate = realEstate;
+//			}
 			
 			// [참고] post 와 댓글이 매칭  => 두 개 값을 저장할 수 있는 클래스를 post/model 아래에 만든다 (post, 코멘트)
 			/*
