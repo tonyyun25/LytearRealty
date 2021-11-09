@@ -53,9 +53,9 @@ public class RealEstateBO {
 	
 	// reservation 하나당 (해당하는) real Estate 주소 가져오기
 	
-	public RealEstate getRealEstateByReservationId(int reservationId){ //reservationId 변수는 없다. realEstateId를 받는지 / 매물정보를 찾고 있으니까
-	
-		return realEstateDAO.selectRealEstateByReservationId(reservationId);
+//	public RealEstate getRealEstateByReservationId(int reservationId){ //reservationId 변수는 없다. realEstateId를 받는지 / 매물정보를 찾고 있으니까
+	public RealEstate getRealEstateByReservationId(int id){
+		return realEstateDAO.selectRealEstateByRealEstateId(id);
 	}
 	
 	

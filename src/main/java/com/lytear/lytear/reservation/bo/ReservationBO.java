@@ -53,7 +53,8 @@ public class ReservationBO {
 			
 //			List<RealEstate> realEstateList = realEstateBO.getRealEstateListByReservationId(reservation.getId());  
 			
-			RealEstate realEstate = realEstateBO.getRealEstateByReservationId(reservation.getId());  
+			//RealEstate realEstate = realEstateBO.getRealEstateByReservationId(reservation.getId());
+			RealEstate realEstate = realEstateBO.getRealEstateByReservationId(reservation.getRealEstateId()); // getId()는 예약에 대한 id. 하지만 전달할 인자는 예약정보와 연결된 매물에 대한 id 
 			
 			
 			//<= reservation에 해당하는 매물은 딱 하나니까 List<RealEstate>가 아니라 RealEstate 객체 자체로 만들자.예약정보 안의 매물정보(이미 들어있다)를 통해서 가져와야 해

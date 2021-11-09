@@ -6,7 +6,7 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import com.lytear.lytear.realEstate.model.RealEstate;
-import com.lytear.sns.post.comment.model.Comment;
+
 
 @Repository
 public interface RealEstateDAO {
@@ -40,8 +40,9 @@ public interface RealEstateDAO {
 	public List<RealEstate> selectRealEstateList();
 	
 	
-	public RealEstate selectRealEstateByReservationId( // reservationId 변수는 없다
-			@Param("reservationId") int reservationId
+	public RealEstate selectRealEstateByRealEstateId( // reservationId 변수는 없다
+//			@Param("reservationId") int reservationId
+			@Param("id") int id
 			);
 	
 	

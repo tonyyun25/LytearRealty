@@ -79,26 +79,26 @@
 									</thead>
 									
 									<tbody>
-										<c:forEach var="reservation" items="${reservationList }">
+										<%-- <c:forEach var="reservation" items="${reservationList }">--%>
+										<c:forEach var="reservationDetail" items="${reservationList }">
+										
 										<tr>
-											<td>보문파크뷰자이</td><%--특정 post 대응 댓글 가져오기 위해 postId 대상 다 가져온 뒤 
-											하나하나 따로 따로 댓글들을 매칭. 방문예약 정보 안에 매물 id 있어. 방문 예약 리스틍에서 하나하나
+											<td>${reservationDetail.realEstate.address }</td><%--특정 post 대응 댓글 가져오기 위해 postId 대상 다 가져온 뒤 
+											하나하나 따로 따로 댓글들을 매칭. 방문예약 정보 안에 매물 id 있어. 방문 예약 리스트에서 하나하나
 											꺼내 realEsateid로 매물 테이블 일치하는 정보 가져와 세트로 묶어서 만들어줘야 함.
-											SNS 코멘트 BO 쪽에  --%>
-											<td><fmt:formatDate value="${reservation.reserveDate }" pattern="yyyy년 MM월 dd일" /></td>
-											<td>${reservation.reserveTime }</td>
-											<td>예약실패</td>
-											<td>집주인 부재. 다른 시간대 신청 바람</td>
-											<td>수정하기</td>
+											SNS 코멘트 BO 쪽에.
+											realEstate 객체 자체에 정보 미저장 가능성
+											--%>
+											
+											<td><fmt:formatDate value="${reservationDetail.reservation.reserveDate }" pattern="yyyy년 MM월 dd일" /></td>
+											<%--지금 여기 reservation은 진짜 reservation 값이 아니야. reservationDetail 안에 reservation이 있고 그 안에 reserveDate 값이 있다 --%>
+											
+											<td>${reservationDetail.reservation.reserveTime }</td>
+											<td>[수정 중]</td>
+											<td>[수정 중]</td>
+											<td>[저장하기]</td>
 										</tr>
-										<tr>
-											<td>답십리파크자이</td>
-											<td>2021/10/15일</td>
-											<td>1730-1800</td>
-											<td>대기</td>
-											<td>빈 칸</td>
-											<td>수정하기</td>
-										</tr>
+										
 										</c:forEach>
 										
 										

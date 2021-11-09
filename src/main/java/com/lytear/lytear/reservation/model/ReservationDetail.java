@@ -9,6 +9,9 @@ public class ReservationDetail {
 	private Reservation reservation;
 //	private List<RealEstate> realEstateList;
 	private RealEstate realEstate;
+	// 구조 바뀌니 Data 꺼내는 방법도 바꿔야 한다
+	// ReservationDetail -> Reservation 순서로 데이터 꺼낸다. 데이터를 꺼내는 El tag 구조를 새로 만든 구조로 맞춘다
+	
 	
 	
 	public Reservation getReservation() {
