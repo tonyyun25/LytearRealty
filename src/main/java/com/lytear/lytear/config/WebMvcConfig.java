@@ -18,7 +18,9 @@ public class WebMvcConfig implements WebMvcConfigurer{
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		registry.addResourceHandler("/images/**")
-		.addResourceLocations("file:///" + FileManagerService.FILE_UPLOAD_PATH);
+//		.addResourceLocations("file:///" + FileManagerService.FILE_UPLOAD_PATH);
+		// 웹이나 리눅스는 slash 한 개임. 수정 211105
+		.addResourceLocations("file:" + FileManagerService.FILE_UPLOAD_PATH);//211105 "file:/" 가 아니라 "file:"로 수정. FileManagerService에서 uploads 뒤에 / 붙였기 때문
 	}
 	
 	
