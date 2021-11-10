@@ -13,8 +13,8 @@ public class FileManagerService {
 
 //	public final static String FILE_UPLOAD_PATH = "C:\\Users\\01.Web개발\\memo\\upload\\images/";
 	
-	public final static String FILE_UPLOAD_PATH = "D:\\윤진일\\프로젝트\\workspace\\LytearRealty\\upload\\images/";// 컴퓨터 경로 -> 서버에 저장할 경로로 바꿔야 함 211105// 211109 16h10 Aws로 현 마스터 머지 한 이후에는 다시 죽일 것
-//	public final static String FILE_UPLOAD_PATH = "/home/ec2-user/uploads/"; // 211109 16h10 Aws로 현 마스터 머지 한 이후에는 다시 살릴 것
+//	public final static String FILE_UPLOAD_PATH = "D:\\윤진일\\프로젝트\\workspace\\LytearRealty\\upload\\images/";// 컴퓨터 경로 -> 서버에 저장할 경로로 바꿔야 함 211105// 211109 16h10 Aws로 현 마스터 머지 한 이후에는 다시 죽일 것
+	public final static String FILE_UPLOAD_PATH = "/home/ec2-user/uploads/"; // 211109 16h10 Aws로 현 마스터 머지 한 이후에는 다시 살릴 것
 	
 	public static String saveFile(int userId, MultipartFile file) {
 		
