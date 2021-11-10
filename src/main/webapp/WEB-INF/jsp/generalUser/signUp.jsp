@@ -23,9 +23,7 @@
 		<section class="content d-flex align-items-center justify-content-center">
 			<div class="">
 				
-				<c:if test="${not empty userName}">
-				<div class="text-right mr-3">${userName } 님 [로그아웃]</div><!--mafia/123-->
-				</c:if>
+				<c:import url="/WEB-INF/jsp/include/header.jsp" />
 				
 				<div class="d-flex align-items-center justify-content-center">
 					<div class="border-box1  border border-secondary d-flex align-items-center justify-content-center">
@@ -81,10 +79,27 @@
 	</div>
 	<script>
 		$(document).ready(function(){
+			// 중복 여부 확인 변수
+			var isDuplicate = true;
+			// 중복 체크 여부 확인
+			var isIdCheck = false;
+			// 아이디에 입력이 있을 경우 중복체크 상태를 초기화 한다
+			$("#idInput").on("input",function(){ // 참조 : Front day 13 test 00
+			/*
+			input을 만들어서 5자 이상의 글씨가 입력되는 경우 alert을 통해서 "다섯자를 초과하여 입력할 수 없습니다. "메시지를 보여주세요.
+			"input" : 새로운 '글자'가 들어온 것만 체크
+			*/	
+				isIdCheck = false;
+				isDuplicate = true;
+			});
+			
+			
 			$("#signupForm").on("submit",function(e){
 				e.preventDefault();
+				
 				var id = $("#idInput").val().trim();
 				var password = $("#passwordInput").val().trim();
+				var passwordConfirm = $("#passwordConfirmInput").val().trim();
 				var email = $("#emailInput").val().trim();
 				var name = $("#nameInput").val().trim();
 				var mobile = $("#mobileNumberInput").val().trim();
@@ -94,8 +109,24 @@
 					return;
 				}
 				
+				if(isIdCheck == false) {
+					alert("중복 체크를 진행해 주세요");
+					return;
+				}
+				
+				
 				if(password == null || password == ""){
 					alert("비밀번호를 입력해 주세요");
+					return;
+				}
+				
+				if(passwordConfirm == null || passwordConfirm == "") {
+					alert("비밀번호 확인을 입력해 주세요")
+					return;
+				}
+				
+				if(password != passwordConfirm) {
+					alert("비밀번호가 일치하지 않습니다")
 					return;
 				}
 				
@@ -134,6 +165,48 @@
 				});
 				
 			});
+			$("#idDuplicateBtn").on("click",function(){
+				//alert("확인");
+				var id = $("#idInput").val().trim();
+								
+				if(id == null || id == ""){
+					alert("id를 입력해 주세요");
+					return;
+				}
+				
+				$.ajax({
+					type: "get",
+					url: "/generalUser/is_duplicate_id",
+					data:{"loginId":id},
+					success:function(data){
+						//alert(data);
+						isIdCheck = true;
+						//alert(data);
+						/*방법 1*/
+						if(data.is_duplicate) {
+							isDuplicate = true;
+							$("#duplicateDiv").removeClass("d-none");
+							$("#noneDuplicateDiv").addClass("d-none");
+						} else {
+							isDuplicate = false;
+							$("#duplicateDiv").addClass("d-none");
+							$("#noneDuplicateDiv").removeClass("d-none");
+							
+						}
+						
+					},	
+					error: function(e) {
+						alert("error");	
+					}	
+					
+					
+					
+				});
+				
+			});
+			
+			
+			
 			
 			
 		});

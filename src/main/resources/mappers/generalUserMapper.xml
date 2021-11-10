@@ -25,6 +25,19 @@
 	
 	</insert>
 
+	<select id="selectCountByID" parameterType="string" resultType="int">
+		SELECT
+			count(*)	
+		
+		FROM 
+			`generalUser`
+		WHERE
+			`loginId` = #{loginId}
+	
+	
+	</select>
+
+
 	<select id="selectUser" resultType="com.lytear.lytear.generalUser.model.GeneralUser"
 	parameterType="map"> 
 		SELECT

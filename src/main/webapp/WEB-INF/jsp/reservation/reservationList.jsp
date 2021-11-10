@@ -41,20 +41,27 @@
 		<section class="content align-items-center d-flex justify-content-center">
 			<div class="">
 				${param.realEstateId }
-				<c:if test="${not empty userName}">
+				
+				<c:import url="/WEB-INF/jsp/include/header.jsp" />
+				
+				<%-- <c:if test="${not empty userName}">
 				<div class="text-right mr-3">${userName } 님 [로그아웃]</div><!--mafia/123-->
-				</c:if>
+				</c:if>--%>
 				
 				<div class="d-flex align-items-center justify-content-center">
 					<div class="border-box1-visit  border border-secondary d-flex align-items-center justify-content-center">
 						<div class="input-box-visit ">
-							<form id="visitRequestBtn" data-real-estate-id="${param.realEstateId }">
+							<%-- <data-real-estate-id="${param.realEstateId }">--%>
 					
-								<div class="banner d-flex align-items-center justify-content-center mb-3">
+								<div class="banner d-flex align-items-center justify-content-center mb-1">
 									<span class="font-weight-bold">방문예약 접수현황</span>
 								</div>
 								
-						
+								<div class=" d-flex justify-content-end">
+									<%-- <button type="button" class="btn btn-success mb-5" id="realEstateListBtn">매물 리스트 보기</button>--%>
+									<a href="/real_estate/view_list" class="btn btn-success mb-5">매물 리스트 보기</a>
+									
+								</div>
 								<%-- 
 								<div class="input-group mb-3 mt-2">
 									<span class="input-group-text" >방문 일자</span>
@@ -94,9 +101,9 @@
 											<%--지금 여기 reservation은 진짜 reservation 값이 아니야. reservationDetail 안에 reservation이 있고 그 안에 reserveDate 값이 있다 --%>
 											
 											<td>${reservationDetail.reservation.reserveTime }</td>
-											<td>[수정 중]</td>
-											<td>[수정 중]</td>
-											<td>[저장하기]</td>
+											<td>[기능추가예정]</td>
+											<td>[기능추가예정]</td>
+											<td>[저장하기 기능추가예정]</td>
 										</tr>
 										
 										</c:forEach>
@@ -106,7 +113,7 @@
 								</table>
 								
 								
-							</form>
+							
 					
 						</div>
 					</div>
@@ -120,7 +127,23 @@
 	</div>
 	
 	<script>
+		/*
+		$(document).ready(function(){
+			$("#addListBtn").on("click", function(){
+				location.href="/real_estate/listing";
+			});
+		});		
 		
+		$(document).ready(function(){
+			$("#realEstateListBtn").on("click", function(){
+				location.href="/real_estate/view_list";	
+			
+			});
+			
+		});		
+		*/
+	
+	
 	
 	</script>
 

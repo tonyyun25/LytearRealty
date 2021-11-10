@@ -28,6 +28,21 @@ public class GeneralUserBO {
 		return generalUserDAO.insertUser(loginId, encryptPassword, email, name, mobile);
 	}
 	
+	public boolean isDuplicateId(String loginId) {
+		
+		int count = generalUserDAO.selectCountByID(loginId);
+		
+		if(count >= 1) {
+			return true;
+		} else {
+			return false;
+		}
+		
+	}
+	
+	
+	
+	
 	public GeneralUser getUser(String loginId, String password) {
 		String encryptPassword = EncryptUtils.md5(password);
 		

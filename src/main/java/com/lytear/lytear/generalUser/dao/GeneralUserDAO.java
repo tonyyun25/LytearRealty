@@ -18,7 +18,10 @@ public interface GeneralUserDAO {
 			, @Param("mobile") String mobile
 			
 			);
-		
+	
+	public int selectCountByID(@Param("loginId") String loginId );
+	
+	
 	public GeneralUser selectUser(
 			@Param("loginId") String loginId 
 			, @Param("password") String password

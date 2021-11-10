@@ -24,9 +24,7 @@
 			
 			<div class="">
 				
-				<c:if test="${not empty userName}">
-				<div class="text-right mr-3">${userName } 님 [로그아웃]</div><!--mafia/123-->
-				</c:if>
+				<c:import url="/WEB-INF/jsp/include/header.jsp" />
 				
 				<div class="d-flex align-items-center justify-content-center">
 					

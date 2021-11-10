@@ -132,7 +132,8 @@
 					data: {"reserveDate":date,"reserveTime":time,"realEstateId":id},//${param.realEstateId } 처음 한 방법
 					success: function(data){
 						if(data.result == "success") {
-							alert("입력 성공");
+							//alert("입력 성공");
+							location.href="/reservation/list_view";//21.11.10일 추가
 						} else {
 							alert("입력 실패")
 						}

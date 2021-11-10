@@ -30,9 +30,10 @@
 				<div class="d-flex align-items-center justify-content-between">
 					<button type="submit" class="btn btn-success mt-3 mb-2" id="addListBtn">매물 등록 화면</button>
 					
-					<c:if test="${not empty userName}">
+					<%-- <c:if test="${not empty userName}">
 					<div class="text-right ">${userName } 님 [로그아웃]</div><!--mafia/123-->
-					</c:if>
+					</c:if>--%>
+					<c:import url="/WEB-INF/jsp/include/header.jsp" />
 				</div>
 				
 				<c:forEach var="realEstate" items="${realEstateList }">
